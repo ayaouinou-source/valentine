@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Forever Valentine</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #ffe6f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 400px;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.yes {
+    background-color: #ff6b9c;
+    color: white;
+}
+
+.no {
+    background-color: #ddd;
+}
+
+#popup {
+    display: none;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Hi HIS_NAME, will you be my forever Valentine?</h2>
+    <p>Before you answer... read this 💌</p>
+
+    <button class="yes" onclick="showMessage()">Yes</button>
+    <button class="no" onmouseover="moveButton(this)">No</button>
+
+    <div id="popup">
+        <h3>Yay!! 💕</h3>
+        <p>
+        My love, even with distance between us, you are the closest person to my heart.
+        You are my comfort, my peace, and my favorite person.
+        I choose you today and always.
+        </p>
+
+        <h4>Press play 🥺</h4>
+        <video width="300" controls>
+            <source src="yourvideo.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("popup").style.display = "block";
+}
+
+function moveButton(button) {
+    button.style.position = "absolute";
+    button.style.left = Math.random() * window.innerWidth + "px";
+    button.style.top = Math.random() * window.innerHeight + "px";
+}
+</script>
+
+</body>
+</html>
