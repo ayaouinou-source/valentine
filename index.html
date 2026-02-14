@@ -8,20 +8,23 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #ffe6f0;
+    background: #1e3a8a; /* deep blue */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
+    overflow: hidden;
+    color: white;
 }
 
 .card {
-    background: white;
+    background: rgba(255,255,255,0.1);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    width: 500px;
+    backdrop-filter: blur(10px);
 }
 
 button {
@@ -34,17 +37,24 @@ button {
 }
 
 .yes {
-    background-color: #ff6b9c;
+    background-color: #2563eb;
     color: white;
 }
 
 .no {
     background-color: #ddd;
+    color: black;
 }
 
 #popup {
     display: none;
     margin-top: 20px;
+}
+
+img {
+    margin: 10px;
+    border-radius: 20px;
+    width: 200px;
 }
 </style>
 </head>
@@ -52,7 +62,7 @@ button {
 <body>
 
 <div class="card">
-    <h2>Hi HIS_NAME, will you be my forever Valentine?</h2>
+    <h2>Hi Bakr, will you be my forever Valentine?</h2>
     <p>Before you answer... read this 💌</p>
 
     <button class="yes" onclick="showMessage()">Yes</button>
@@ -61,21 +71,40 @@ button {
     <div id="popup">
         <h3>Yay!! 💕</h3>
         <p>
-        My love, even with distance between us, you are the closest person to my heart.
-        You are my comfort, my peace, and my favorite person.
-        I choose you today and always.
+        My baby,<br><br>
+        My dearest Bakr, to the man my heart keeps beating for. The man my heart, mind and soul chose to fall in love with completely with no restrainers, I want you to know just how much you mean to me baby, and I doubt there is anything in this world that would show you all the love and gratitude I have towards you.<br><br>
+        You being in my life still feels like a fever dream, you turned ordinary days into extraordinary, you lightened my world with your warmth love and laughter, everything about you reminds me how so lucky I am to have you.<br><br>
+        You are my safe place, my comfort, the person I will always run to when things get intense, happy or heavy. You made my days so much more joyful and even my nights (since your handsome face appears in my dreams yay).<br><br>
+        I want you to know, that my love grows strongly and deeply everyday, and it will never stop loving you till death catches my last breaths, I am so in love with you, I love you more than I could express and definitely more than anything that exists in my life, I promise to love you, cherish you, and do everything I could to keep your smile.<br><br>
+        I adore you &lt;3
         </p>
 
-        <h4>Press play 🥺</h4>
-        <video width="300" controls>
-            <source src="yourvideo.mp4" type="video/mp4">
-        </video>
+        <!-- Pictures -->
+        <img src="bakr1.jpg" alt="Bakr">
+        <img src="bakr2.jpg" alt="Bakr">
+
     </div>
 </div>
 
 <script>
 function showMessage() {
-    document.getElementById("popup").style.display = "block";
+    const popup = document.getElementById("popup");
+    popup.style.display = "block";
+
+    // create 20 floating blue hearts
+    for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("div");
+        heart.textContent = "💙";
+        heart.style.position = "absolute";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = Math.random() * window.innerHeight + "px";
+        heart.style.fontSize = (10 + Math.random() * 20) + "px";
+        heart.style.pointerEvents = "none";
+        document.body.appendChild(heart);
+
+        // hearts disappear after 2 seconds
+        setTimeout(() => heart.remove(), 2000);
+    }
 }
 
 function moveButton(button) {
